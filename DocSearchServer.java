@@ -14,7 +14,8 @@ class FileHelpers {
         File f = start.toFile();
         List<File> result = new ArrayList<>();
         if(f.isDirectory()) {
-            File[] paths = f.listFiles();
+System.out.println(f.toString() + ". It is a directory.");            
+File[] paths = f.listFiles();
             for(File subFile: paths) {
                 result.addAll(getFiles(subFile.toPath()));
             }
@@ -44,7 +45,7 @@ class Handler implements URLHandler {
                String result = "";
                List<String> foundPaths = new ArrayList<>();
                for(File f: paths) {
-                   if(FileHelpers.readFile(f).toString().contains(parameters[1])) {
+         i          if(FileHelpers.readFile(f).toString().contains(parameters[1])) {
                        foundPaths.add(f.toString());
                    }
                }
